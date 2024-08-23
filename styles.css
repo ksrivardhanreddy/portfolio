@@ -48,18 +48,31 @@ h1, h2, h3 {
 }
 
 #home {
-    background-color: #f4f4f4;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
     text-align: center;
     padding: 6rem 2rem;
+    position: relative;
+    color: #fff; 
 }
 
 #home h1 {
-    font-size: 3rem;
+    font-size: 6rem;
 }
 
 #home h2 {
     font-size: 1.5rem;
     color: #666;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) to change the overlay opacity */
 }
 
 #skills ul {
@@ -112,26 +125,6 @@ footer {
     padding: 1rem;
 }
 
-
-
-#home {
-    background-image: url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    padding: 6rem 2rem;
-    position: relative;
-    color: #fff; /* Change text color to white or any other color that contrasts with your background */
-}
-
-.background-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) to change the overlay opacity */
-}
 
 #home h1, #home h2 {
     position: relative;
