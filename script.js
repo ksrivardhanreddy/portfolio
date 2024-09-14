@@ -8,6 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             targetSection.scrollIntoView({ behavior: 'smooth' });
+
+            // If it's the resume link, scroll to the resume section
+            if (targetId === '#resume') {
+                const resumeSection = document.getElementById('resume');
+                resumeSection.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 
@@ -18,5 +24,27 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         alert('Thank you for your message! I will get back to you soon.');
         contactForm.reset();
+    });
+
+    const viewResumeBtn = document.getElementById('view-resume-btn');
+    const resumePopup = document.getElementById('resume-popup');
+    const closePopup = document.querySelector('.close-popup');
+    const resumeSection = document.getElementById('resume');
+
+    viewResumeBtn.addEventListener('click', function() {
+        resumePopup.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
+    });
+
+    closePopup.addEventListener('click', function() {
+        resumePopup.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === resumePopup) {
+            resumePopup.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
     });
 });
