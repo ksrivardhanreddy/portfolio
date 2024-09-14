@@ -195,3 +195,38 @@ footer {
 .styled-button:hover {
     background-color: #333; /* Darker black on hover */
 }
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px; /* Adjust base font size for smaller screens */
+    }
+    header {
+        padding: 0.5rem; /* Reduce header padding */
+    }
+    nav ul {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center; /* Center align navigation items */
+    }
+    nav ul li {
+        margin: 0.5rem 0; /* Adjust margin for mobile */
+    }
+    #home h1 {
+        font-size: 3rem; /* Adjust heading size for mobile */
+    }
+    #home h2 {
+        font-size: 2rem; /* Adjust subheading size for mobile */
+    }
+    section {
+        padding: 2rem 1rem; /* Adjust section padding for mobile */
+    }
+    .project {
+        margin-bottom: 2rem; /* Increase margin for projects on mobile */
+    }
+    #contact-form input,
+    #contact-form textarea {
+        width: 100%; /* Ensure inputs take full width */
+    }
+    .popup-content {
+        width: 90%; /* Adjust popup width for mobile */
+        height: auto; /* Allow height to adjust */
+    }
+}
