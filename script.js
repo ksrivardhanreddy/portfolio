@@ -17,6 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+function toggleMenu() {
+  var navLinks = document.getElementById("navLinks");
+  if (navLinks.style.display === "block") {
+    navLinks.style.display = "none";
+  } else {
+    navLinks.style.display = "block";
+  }
+}
+
+    
     // Form submission (you can add your own logic here)
     const contactForm = document.getElementById('contact-form');
     
