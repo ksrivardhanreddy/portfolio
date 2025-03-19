@@ -8,6 +8,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
+    scroll-behavior: smooth;
 }
 
 header {
@@ -17,6 +18,14 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav ul {
@@ -33,6 +42,11 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ccc;
 }
 
 main {
@@ -41,6 +55,8 @@ main {
 
 section {
     padding: 4rem 2rem;
+    min-height: 50vh;
+    scroll-margin-top: 60px; /* Important for smooth scrolling with fixed header */
 }
 
 h1, h2, h3 {
@@ -54,15 +70,20 @@ h1, h2, h3 {
     text-align: center;
     padding: 6rem 2rem;
     position: relative;
-    color: #fff; 
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #home h1 {
-    font-size: 7rem;
+    font-size: 5rem;
+    margin-bottom: 1rem;
 }
 
 #home h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #ffffff;
 }
 
@@ -72,7 +93,7 @@ h1, h2, h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) to change the overlay opacity */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #skills ul {
@@ -110,12 +131,21 @@ h1, h2, h3 {
     padding: 0.5rem;
 }
 
+#contact-form textarea {
+    min-height: 150px;
+}
+
 #contact-form button {
     background-color: #1a1a1a;
     color: #fff;
     padding: 0.5rem;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contact-form button:hover {
+    background-color: #333;
 }
 
 footer {
@@ -175,114 +205,137 @@ footer {
 
 /* Update the button style */
 .styled-button {
-    background-color: #1a1a1a; /* Black background */
-    color: white; /* White text */
-    font-weight: bold; /* Bold text */
-    padding: 15px 32px; /* Padding */
-    text-align: center; /* Centered text */
-    text-decoration: none; /* No underline */
-    display: inline-block; /* Inline block */
-    font-size: 16px; /* Font size */
-    margin: 4px 2px; /* Margin */
-    cursor: pointer; /* Pointer cursor on hover */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s; /* Transition effect */
+    background-color: #1a1a1a;
+    color: white;
+    font-weight: bold;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 .styled-button:hover {
-    background-color: #333; /* Darker black on hover */
+    background-color: #333;
 }
 
-
-.nav-links {
-  display: none;
-  list-style: none;
-  padding: 0;
-}
-
-.nav-links li {
-  margin: 10px 0;
-}
-
+/* Mobile menu styles */
 .hamburger {
-  font-size: 30px;
-  cursor: pointer;
-}
-
-@media (min-width: 768px) {
-  .nav-links {
-    display: flex;
-    justify-content: space-around;
-  }
-  .hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
     display: none;
-  }
 }
 
-
+/* Mobile styles */
 @media screen and (max-width: 768px) {
     body {
-        font-size: 14px; /* Adjust base font size for smaller screens */
+        font-size: 14px;
     }
+    
     header {
-        padding: 0.5rem; /* Reduce header padding */
+        padding: 0.5rem;
     }
-    nav ul {
-        flex-direction: column; /* Stack navigation items vertically */
-        align-items: center; /* Center align navigation items */
+    
+    .hamburger {
+        display: block;
     }
-    nav ul li {
-        margin: 0.5rem 0; /* Adjust margin for mobile */
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #1a1a1a;
+        padding: 20px 0;
     }
+    
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    
     #home h1 {
-        font-size: 3rem; /* Adjust heading size for mobile */
+        font-size: 2.5rem;
     }
+    
     #home h2 {
-        font-size: 2rem; /* Adjust subheading size for mobile */
+        font-size: 1.5rem;
     }
+    
     section {
-        padding: 2rem 1rem; /* Adjust section padding for mobile */
+        padding: 2rem 1rem;
     }
+    
     .project {
-        margin-bottom: 2rem; /* Increase margin for projects on mobile */
+        margin-bottom: 2rem;
     }
+    
     #contact-form input,
     #contact-form textarea {
-        width: 100%; /* Ensure inputs take full width */
+        width: 100%;
     }
+    
     .popup-content {
-        width: 90%; /* Adjust popup width for mobile */
-        height: auto; /* Allow height to adjust */
+        width: 100%;
+        height: 100%;
+        padding: 10px;
     }
+    
     #home {
-        padding: 4rem 1rem; /* Adjust home section padding for mobile */
+        padding: 4rem 1rem;
     }
+    
     #skills ul li {
-        font-size: 0.9rem; /* Reduce skill item font size for mobile */
+        font-size: 0.9rem;
+        margin: 0.3rem;
     }
+    
     .styled-button {
-        padding: 10px 20px; /* Adjust button padding for mobile */
-        font-size: 14px; /* Reduce button font size for mobile */
+        padding: 10px 20px;
+        font-size: 14px;
     }
 }
 
-/* Add styles for larger screens */
+/* Desktop styles */
+@media screen and (min-width: 769px) {
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    section {
+        padding: 5rem 2rem;
+    }
+}
+
+/* Large screen styles */
 @media screen and (min-width: 1200px) {
     body {
-        font-size: 18px; /* Increase base font size for larger screens */
+        font-size: 18px;
     }
-    .container {
-        max-width: 1200px; /* Limit content width on large screens */
-        margin: 0 auto; /* Center content */
-    }
+    
     #home h1 {
-        font-size: 8rem; /* Increase heading size for larger screens */
+        font-size: 6rem;
     }
+    
     #home h2 {
-        font-size: 4rem; /* Increase subheading size for larger screens */
+        font-size: 3rem;
     }
+    
     section {
-        padding: 6rem 3rem; /* Increase section padding for larger screens */
+        padding: 6rem 3rem;
     }
 }
